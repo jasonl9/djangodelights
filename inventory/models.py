@@ -3,20 +3,24 @@ from django.db import models
 # Create your models here.
 class Ingredient(models.Model):
   name = models.CharField(max_length=50)
-  avaliable_quantity = models.IntegerField
+  avaliable_quantity = models.FloatField()
   unit = models.CharField(max_length=30)
-  unit_price = models.FloatField
+  unit_price = models.FloatField()
 
 
 class MenuItem(models.Model):
   name = models.CharField(max_length=100)
-  price = models.FloatField
+  price = models.FloatField()
 
 class RecipeRequirement(models.Model):
-  pass
+  menuitem = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
+  ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+  quantity = models.FloatField()
 
 class Order(models.Model):
-  timestamp = models.DateTimeField
+  timestamp = models.DateTimeField()
 
 class Purchase(models.Model):
-  pass
+  menuitem = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
+  quantity = models.IntegerField()
+  order = models.ForeignKey(Order, on_delete=models.CASCADE)
