@@ -1,0 +1,21 @@
+{% block content %}
+
+<h1>Ingredient List</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Available Quantity</th>
+        <th>Unit</th>
+        <th>Unit Price</th>
+    </tr>
+    {% for ingredient in ingredient_list %}
+    <tr>
+      <td>{{ ingredient.name }}</td>
+      <td>{{ ingredient.available_quantity }}</td>
+      <td>{{ ingredient.unit }}</td>
+      <td>{{ ingredient.unit_price }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
