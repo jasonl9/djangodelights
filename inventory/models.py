@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Ingredient(models.Model):
   name = models.CharField(max_length=50)
-  available_quantity = models.FloatField()
+  quantity = models.FloatField()
   unit = models.CharField(max_length=30)
   unit_price = models.FloatField()
 
@@ -15,30 +15,23 @@ class Ingredient(models.Model):
 
 
 class MenuItem(models.Model):
-  name = models.CharField(max_length=100)
+  title = models.CharField(max_length=100)
   price = models.FloatField()
 
   def __str__(self):
-    return self.name
+    return self.title
 
 class RecipeRequirement(models.Model):
-  menuitem = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
+  menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
   ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
   quantity = models.FloatField()
 
   def __str__(self):
-    return "Recipe Requirement #" + str(self.pk) + " " + str(self.menuitem) + " - " + str(self.ingredient)
-
-class Order(models.Model):
-  timestamp = models.DateTimeField()
-
-  def __str__(self):
-    return "Order #" + str(self.pk)
+    return "Recipe Requirement #" + str(self.pk) + " " + str(self.menu_item) + " - " + str(self.ingredient)
 
 class Purchase(models.Model):
-  menuitem = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
+  menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
   quantity = models.IntegerField()
-  order = models.ForeignKey(Order, on_delete=models.CASCADE)
 
   def __str__(self):
     return "Purchase #" + str(self.pk)
