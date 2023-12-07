@@ -22,6 +22,14 @@ class MenuItem(models.Model):
   def __str__(self):
     return self.title
 
+  @property
+  def cost(self):
+    recipes = RecipeRequirement.objects.filter(menu_item=self.pk)
+    ingredient_cost_sum = 0
+    for recipe in recipes:
+      ingredient_cost_sum += recipe.ingredient.unit_price * recipe.quantity
+    return ingredient_cost_sum
+
 class RecipeRequirement(models.Model):
   menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
   ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
