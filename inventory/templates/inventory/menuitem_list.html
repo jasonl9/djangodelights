@@ -3,12 +3,12 @@
 <h1>Menu</h1>
 <table>
     <tr>
-        <th>Name</th>
+        <th>Title</th>
         <th>Price</th>
     </tr>
     {% for menuitem in menuitem_list %}
     <tr>
-      <td>{{ menuitem.name }}</td>
+      <td>{{ menuitem.title }}</td>
       <td>{{ menuitem.price }}</td>
     </tr>
     {% endfor %}

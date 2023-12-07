@@ -1,0 +1,19 @@
+{% block content %}
+
+<h1>Purchase List</h1>
+<table>
+    <tr>
+        <th>Menu_Item</th>
+        <th>Timestamp</th>
+        <th>Revenue</th>
+    </tr>
+    {% for purchase in purchase_list %}
+    <tr>
+      <td>{{ purchase.menu_item }}</td>
+      <td>{{ purchase.timestamp }}</td>
+      <td>{{ purchase.revenue }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

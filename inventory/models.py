@@ -36,3 +36,7 @@ class Purchase(models.Model):
 
   def __str__(self):
     return "Purchase #" + str(self.pk)
+
+  @property
+  def revenue(self):
+    return self.menu_item.price
