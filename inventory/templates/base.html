@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Django Delights</title>
+        {% block head %}
+        {% endblock %}
+    </head>
+    <body>
+        <div>
+            <header>
+                <div>
+                    <h1 class="title">Django Delights</h1>
+                </div>
+                <nav class="navbar">
+                    <a class="nav-item" href="{% url 'home' %}">Home</a>
+                    <a class="nav-item" href="{% url 'ingredientlist' %}">Ingredient</a>
+                    <a class="nav-item" href="{% url 'menuitemlist' %}">Menu</a>
+                    <a class="nav-item" href="{% url 'purchaselist' %}">Purchase</a>
+                </nav>
+            </header>
+            <main>{% block content %}{% endblock %}</main>
+        </div>
+    </body>
+</html>

@@ -6,6 +6,8 @@ from django.views.generic import ListView, TemplateView
 from django.views.generic.edit import DeleteView
 from .forms import IngredientForm
 
+class HomeView(TemplateView):
+    template_name = "inventory/home.html"
 
 class IngredientList(ListView):
     model = Ingredient
