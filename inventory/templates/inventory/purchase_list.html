@@ -6,12 +6,16 @@
         <th>Menu_Item</th>
         <th>Timestamp</th>
         <th>Revenue</th>
+        <th>Cost</th>
+        <th>Profit</th>
     </tr>
-    {% for purchase in purchase_list %}
+    {% for purchase in purchases %}
     <tr>
       <td>{{ purchase.menu_item }}</td>
       <td>{{ purchase.timestamp }}</td>
-      <td>{{ purchase.revenue }}</td>
+      <td>{{ purchase.menu_item.price }}</td>
+      <td>{{ purchase.menu_item.cost }}</td>
+      <td>{{ purchase.menu_item.profit }}</td>
     </tr>
     {% endfor %}
 </table>

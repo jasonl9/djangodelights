@@ -18,6 +18,7 @@ class Ingredient(models.Model):
 class MenuItem(models.Model):
   title = models.CharField(max_length=100)
   price = models.FloatField()
+  #price = revenue
 
   def __str__(self):
     return self.title
@@ -28,7 +29,11 @@ class MenuItem(models.Model):
     ingredient_cost_sum = 0
     for recipe in recipes:
       ingredient_cost_sum += recipe.ingredient.unit_price * recipe.quantity
-    return ingredient_cost_sum
+    return round(ingredient_cost_sum, 1)
+
+  @property
+  def profit(self):
+    return self.price - self.cost
 
 class RecipeRequirement(models.Model):
   menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
@@ -44,7 +49,3 @@ class Purchase(models.Model):
 
   def __str__(self):
     return "Purchase #" + str(self.pk)
-
-  @property
-  def revenue(self):
-    return self.menu_item.price
