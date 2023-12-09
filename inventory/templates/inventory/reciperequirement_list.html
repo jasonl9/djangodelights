@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Recipe Requirement List</h1>
+<table>
+    <tr>
+        <th>Menu Item</th>
+        <th>Ingredient</th>
+        <th>Quantity</th>
+    </tr>
+    {% for recipe in reciperequirement_list %}
+    <tr>
+      <td>{{ recipe.menu_item }}</td>
+      <td>{{ recipe.ingredient}}</td>
+      <td>{{ recipe.quantity }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
