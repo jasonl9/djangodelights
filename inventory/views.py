@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from .models import Ingredient, MenuItem, Purchase, RecipeRequirement, Purchase
 from django.views.generic import ListView, TemplateView
-from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import IngredientForm, MenuItemForm, RecipeRequirementForm, PurchaseForm
 
 class HomeView(TemplateView):
@@ -17,6 +17,11 @@ class CreateIngredientList(CreateView):
     model = Ingredient
     form_class = IngredientForm
     template_name = "inventory/add_ingredient.html"
+
+class UpdateIngredientList(UpdateView):
+    model = Ingredient
+    form_class = IngredientForm
+    template_name = "inventory/update_ingredient.html"
 
 class DeleteIngredientView(DeleteView):
     model = Ingredient
