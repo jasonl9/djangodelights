@@ -49,6 +49,16 @@ class CreateMenuItemList(LoginRequiredMixin, CreateView):
     form_class = MenuItemForm
     template_name = "inventory/add_menuitem.html"
 
+class UpdateMenuItemList(LoginRequiredMixin, UpdateView):
+    model = MenuItem
+    form_class = MenuItemForm
+    template_name = "inventory/update_menuitem.html"
+
+class DeleteMenuItemList(LoginRequiredMixin, DeleteView):
+    model = MenuItem
+    template_name = "inventory/delete_menuitem.html"
+    success_url = "/inventory/menuitem"
+
 class RecipeRequirementList(LoginRequiredMixin, ListView):
     model = RecipeRequirement
     template_name = "inventory/reciperequirement_list.html"
@@ -57,6 +67,16 @@ class CreateRecipeRequirementList(LoginRequiredMixin, CreateView):
     model = RecipeRequirement
     form_class = RecipeRequirementForm
     template_name = "inventory/add_reciperequirement.html"
+
+class UpdateRecipementRequirementList(LoginRequiredMixin, UpdateView):
+    model = RecipeRequirement
+    form_class = RecipeRequirementForm
+    template_name = "inventory/update_reciperequirement.html"
+
+class DeleteRecipeRequirementList(LoginRequiredMixin, DeleteView):
+    model = RecipeRequirement
+    template_name = "inventory/delete_reciperequirement.html"
+    success_url = "/inventory/reciperequirement"
 
 class PurchaseList(LoginRequiredMixin, TemplateView):
     template_name = "inventory/purchase_list.html"
@@ -71,3 +91,13 @@ class CreatePurchaseList(LoginRequiredMixin, CreateView):
     model = Purchase
     form_class = PurchaseForm
     template_name = "inventory/add_purchase.html"
+
+class UpdatePurchaseList(LoginRequiredMixin, UpdateView):
+    model = Purchase
+    form_class = PurchaseForm
+    template_name = "inventory/update_purchase.html"
+
+class DeletePurchaseList(LoginRequiredMixin, DeleteView):
+    model = Purchase
+    template_name = "inventory/delete_purchase.html"
+    success_url = "/inventory/purchase"

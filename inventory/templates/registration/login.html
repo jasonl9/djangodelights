@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 
-<h1>Please login</h1>
+<h1>Django Delights App</h1>
+<h2>Please login</h2>
 <form method="post">
     <div>
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Login"/>
     </div>
+<div>
+    <p>Do not have an account?</p>
+    <a href="{% url 'signup' %}">Sign Up Here</a>
+</div>
 </form>

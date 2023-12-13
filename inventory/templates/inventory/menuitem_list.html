@@ -10,8 +10,9 @@
     </tr>
     {% for menuitem in menuitem_list %}
     <tr>
-      <td>{{ menuitem.title }}</td>
+      <td><a href="{% url "update_menuitem" menuitem.pk %}">{{ menuitem.title }}</a></td>
       <td>{{ menuitem.price }}</td>
+      <td><a href="{% url "delete_menuitem" menuitem.pk %}">Delete</a></td>
     </tr>
     {% endfor %}
 </table>

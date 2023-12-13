@@ -14,8 +14,14 @@ urlpatterns = [
     path("ingredient/<pk>/delete/", views.DeleteIngredientView.as_view(), name="delete_ingredient"),
     path("menuitem/", views.MenuItemList.as_view(), name="menuitemlist"),
     path("menuitem/new/", views.CreateMenuItemList.as_view(), name="add_menuitem"),
+    path("menuitem/<pk>/update/", views.UpdateMenuItemList.as_view(), name="update_menuitem"),
+    path("menuitem/<pk>/delete/", views.DeleteMenuItemList.as_view(), name="delete_menuitem"),
     path("reciperequirement/", views.RecipeRequirementList.as_view(), name="reciperequirementlist"),
     path("reciperequirement/new/", views.CreateRecipeRequirementList.as_view(), name="add_reciperequirement"),
+    path("reciperequirement/<pk>/update", views.UpdateRecipementRequirementList.as_view(), name="update_reciperequirement"),
+    path("reciperequirement/<pk>/delete", views.DeleteRecipeRequirementList.as_view(), name="delete_reciperequirement"),
     path("purchase/", views.PurchaseList.as_view(), name="purchaselist"),
-    path("purchase/new/", views.CreatePurchaseList.as_view(), name="add_purchase")
+    path("purchase/new/", views.CreatePurchaseList.as_view(), name="add_purchase"),
+    path("purhcase/<pk>/update", views.UpdatePurchaseList.as_view(), name="update_purchase"),
+    path("purchase/<pk>/delete", views.DeletePurchaseList.as_view(), name="delete_purchase")
 ]

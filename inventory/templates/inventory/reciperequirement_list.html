@@ -11,9 +11,10 @@
     </tr>
     {% for recipe in reciperequirement_list %}
     <tr>
-      <td>{{ recipe.menu_item }}</td>
+      <td><a href="{% url "update_reciperequirement" recipe.pk %}">{{ recipe.menu_item }}</a></td>
       <td>{{ recipe.ingredient}}</td>
       <td>{{ recipe.quantity }}</td>
+      <td><a href="{% url "delete_reciperequirement" recipe.pk %}">Delete</a></td>
     </tr>
     {% endfor %}
 </table>

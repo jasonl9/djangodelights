@@ -13,11 +13,12 @@
     </tr>
     {% for purchase in purchases %}
     <tr>
-      <td>{{ purchase.menu_item }}</td>
+      <td><a href="{% url "update_purchase" purchase.pk %}">{{ purchase.menu_item }}</a></td>
       <td>{{ purchase.timestamp }}</td>
       <td>{{ purchase.menu_item.price }}</td>
       <td>{{ purchase.menu_item.cost }}</td>
       <td>{{ purchase.menu_item.profit }}</td>
+      <td><a href="{% url "delete_purchase" purchase.pk %}">Delete</a></td>
     </tr>
     {% endfor %}
 </table>

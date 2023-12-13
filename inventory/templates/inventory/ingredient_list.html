@@ -12,10 +12,11 @@
     </tr>
     {% for ingredient in ingredient_list %}
     <tr>
-      <td>{{ ingredient.name }}</td>
+      <td><a href="{% url "update_ingredient" ingredient.pk %}">{{ ingredient.name }}</a></td>
       <td>{{ ingredient.quantity }}</td>
       <td>{{ ingredient.unit }}</td>
       <td>{{ ingredient.unit_price }}</td>
+      <td><a href="{% url "delete_ingredient" ingredient.pk %}">Delete</a></td>
     </tr>
     {% endfor %}
 </table>
